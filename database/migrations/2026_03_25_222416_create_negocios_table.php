@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->strimng('tipo_negocio');
+            $table->string('tipo_negocio');
             $table->string('description');
             $table->string('phone');
             $table->string('direction');
