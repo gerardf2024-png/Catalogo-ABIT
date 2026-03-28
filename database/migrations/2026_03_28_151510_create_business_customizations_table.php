@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('colores', function (Blueprint $table) {
+       Schema::create('business_customizations', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->string('c1');
-            $table->string('c2');
-            $table->string('c3');
+            $table->foreignId('business_id')->constrained()->cascadeOnDelete();
+            $table->string('key');
+            $table->text('value')->nullable();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('colores');
+        Schema::dropIfExists('business_customizations');
     }
 };
